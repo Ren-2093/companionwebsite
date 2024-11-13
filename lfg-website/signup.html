@@ -3,38 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Sign Up</title>
 </head>
 <body>
-    <header>
-        <h1>Signup</h1>
-        <nav>
-            <ul>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section>
-            <h2>Create a new account</h2>
-            <form id="signup-form">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required><br><br>
+    <h1>Sign Up</h1>
+    <form id="signup-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
 
-                <button type="submit">Signup</button>
-            </form>
-        </section>
-    </main>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="/">Login</a></p>
 
-    <footer>
-        <p>&copy; 2024 LFG Website</p>
-    </footer>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = {
+                username: formData.get('username'),
+                password: formData.get('password')
+            };
 
-    <script src="js/signup.js"></script>
+            fetch('/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.message === 'User created successfully') {
+                    window.location.href = '/'; // Redirect to login page
+                } else {
+                    alert('Error creating account');
+                }
+            })
+            .catch(error => {
+                console.error('Error signing up:', error);
+            });
+        });
+    </script>
 </body>
 </html>
