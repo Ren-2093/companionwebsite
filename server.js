@@ -2,10 +2,131 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const bcrypt = require('bcryptjs');
 
 // Initialize the app
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'lfg-website')));
+app.use(session({
+    secret: 'your-secret-key', // Change this to a more secure key
+    resave: false,
+    saveUninitialized: false,
+}));
+
+// Serve the home page
+app.get('/', (req, res) => {
+    if (req.session.user) {
+        return res.redirect('/home');
+    }
+    res.sendFile(path.join(__dirname, 'lfg-website', 'login.html'));
+});
+
+// Serve the login page
+app.get('/login', (req, res) => {
+    if (req.session.user) {
+        return res.redirect('/home');
+    }
+    res.sendFile(path.join(__dirname, 'lfg-website', 'login.html'));
+});
+
+// Serve the signup page
+app.get('/signup', (req, res) => {
+    if (req.session.user) {
+        return res.redirect('/home');
+    }
+    res.sendFile(path.join(__dirname, 'lfg-website', 'signup.html'));
+});
+
+// Serve home page only if user is logged in
+app.get('/home', (req, res) => {
+    if (!req.session.user) {
+        return res.redirect('/login');
+    }
+    res.sendFile(path.join(__dirname, 'lfg-website', 'index.html'));
+});
+
+// Login a user
+app.post('/api/login', (req, res) => {
+    const { username, password } = req.body;
+
+    db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        if (!row) {
+            return res.status(400).json({ error: 'Invalid username or password' });
+        }
+
+        bcrypt.compare(password, row.password, (err, match) => {
+            if (err) {
+                return res.status(500).json({ error: err.message });
+            }
+            if (!match) {
+                return res.status(400).json({ error: 'Invalid username or password' });
+            }
+
+            req.session.user = { id: row.id, username: row.username };
+            res.status(200).json({ message: 'Logged in successfully' });
+        });
+    });
+});
+
+// Signup a new user
+app.post('/api/signup', (req, res) => {
+    const { username, password } = req.body;
+
+    bcrypt.hash(password, 10, (err, hashedPassword) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error hashing password' });
+        }
+
+        db.run('INSERT INTO users (username, password) VALUES (?, ?)', [username, hashedPassword], function (err) {
+            if (err) {
+                return res.status(500).json({ error: 'Error creating user' });
+            }
+
+            req.session.user = { id: this.lastID, username: username };
+            res.status(201).json({ message: 'User created successfully' });
+        });
+    });
+});
+
+// Logout the user
+app.post('/api/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error logging out' });
+        }
+        res.status(200).json({ message: 'Logged out successfully' });
+    });
+});
+
+// Create a new group (protected route)
+app.post('/api/groups', (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    const { name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo } = req.body;
+    const createdBy = req.session.user.username;
+    const members = JSON.stringify([createdBy]); // Initialize members with the creator
+
+    db.run(`INSERT INTO groups (name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy, members) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy, members],
+        function (err) {
+            if (err) {
+                return res.status(500).json({ error: err.message });
+            }
+            res.status(201).json({ id: this.lastID });
+        }
+    );
+});
 
 // Create and open the SQLite database
 const db = new sqlite3.Database('./database.db', (err) => {
@@ -37,14 +158,6 @@ const db = new sqlite3.Database('./database.db', (err) => {
     }
 });
 
-// Middleware
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'lfg-website')));
-
-// Serve the home page
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'lfg-website', 'index.html'));
-});
 
 // Serve the find-group page
 app.get('/find-group', (req, res) => {
