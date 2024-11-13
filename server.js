@@ -20,9 +20,6 @@ app.use(session({
 
 // Serve the home page
 app.get('/', (req, res) => {
-    if (req.session.user) {
-        return res.redirect('/home');
-    }
     res.sendFile(path.join(__dirname, 'lfg-website', 'login.html'));
 });
 
