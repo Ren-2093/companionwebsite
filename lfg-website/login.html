@@ -4,37 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Login</h1>
-        <nav>
-            <ul>
-                <li><a href="signup.html">Signup</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section>
-            <h2>Login to your account</h2>
-            <form id="login-form">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required><br><br>
+    <h1>Login</h1>
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
 
-                <button type="submit">Login</button>
-            </form>
-        </section>
-    </main>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/signup">Sign up</a></p>
 
-    <footer>
-        <p>&copy; 2024 LFG Website</p>
-    </footer>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = {
+                username: formData.get('username'),
+                password: formData.get('password')
+            };
 
-    <script src="js/login.js"></script>
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.message === 'Login successful') {
+                    window.location.href = '/home'; // Redirect to home page
+                } else {
+                    alert('Invalid username or password');
+                }
+            })
+            .catch(error => {
+                console.error('Error logging in:', error);
+            });
+        });
+    </script>
 </body>
 </html>
