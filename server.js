@@ -21,7 +21,7 @@ app.use(session({
 // Serve the home page
 app.get('/', (req, res) => {
     if (req.session.user) {
-        return res.redirect('/home');
+        return res.redirect('/');
     }
     res.sendFile(path.join(__dirname, 'lfg-website', 'login.html'));
 });
@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 // Serve the login page
 app.get('/login', (req, res) => {
     if (req.session.user) {
-        return res.redirect('/home');
+        return res.redirect('/');
     }
     res.sendFile(path.join(__dirname, 'lfg-website', 'login.html'));
 });
