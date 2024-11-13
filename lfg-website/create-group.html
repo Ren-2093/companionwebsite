@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Group</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Create a Group</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="find-group.html">Find Group</a></li>
+                <li><a href="create-group.html">Create Group</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Fill out the form to create a group</h2>
+            <form id="create-group-form">
+
+    <label for="username">Your Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="group-name">Group Name:</label>
+    <input type="text" id="group-name" name="group-name" required>
+    
+    <label for="game-name">Game Name:</label>
+    <input type="text" id="game-name" name="game-name" required>
+    
+    <label for="activity-name">Activity Name:</label>
+    <input type="text" id="activity-name" name="activity-name" required>
+    
+    <label for="teammates-required">Teammates Required (Inclusive, Max 12):</label>
+    <input type="number" id="teammates-required" name="teammates-required" min="1" max="12" required>
+    
+    <label for="difficulty-rating">Difficulty Rating (1-10):</label>
+    <input type="number" id="difficulty-rating" name="difficulty-rating" min="1" max="10" required>
+    
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" required>
+
+    
+    <label for="additional-info">Additional Information:</label>
+    <textarea id="additional-info" name="additional-info"></textarea>
+    
+    <button type="submit">Create Group</button>
+</form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 LFG Website</p>
+    </footer>
+
+    <script src="js/create-group.js"></script>
+</body>
+</html>
