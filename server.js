@@ -66,7 +66,7 @@ app.use(session({
 // Serve the login page (this will be the first page)
 app.get('/', (req, res) => {
     if (req.session.user) {
-        return res.redirect('/home'); // Redirect logged-in users to home
+        return res.redirect(''); // Redirect logged-in users to home
     }
     res.sendFile(path.join(__dirname, 'lfg-website', 'login.html'));
 });
