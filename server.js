@@ -106,28 +106,6 @@ app.post('/api/logout', (req, res) => {
     });
 });
 
-// Create a new group (protected route)
-app.post('/api/groups', (req, res) => {
-    if (!req.session.user) {
-        return res.status(401).json({ error: 'Unauthorized' });
-    }
-
-    const { name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo } = req.body;
-    const createdBy = req.session.user.username;
-    const members = JSON.stringify([createdBy]); // Initialize members with the creator
-
-    db.run(`INSERT INTO groups (name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy, members) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy, members],
-        function (err) {
-            if (err) {
-                return res.status(500).json({ error: err.message });
-            }
-            res.status(201).json({ id: this.lastID });
-        }
-    );
-});
-
 // Create and open the SQLite database
 const db = new sqlite3.Database('./database.db', (err) => {
     if (err) {
@@ -158,6 +136,27 @@ const db = new sqlite3.Database('./database.db', (err) => {
     }
 });
 
+// Create a new group (protected route)
+app.post('/api/groups', (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    const { name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo } = req.body;
+    const createdBy = req.session.user.username;
+    const members = JSON.stringify([createdBy]); // Initialize members with the creator
+
+    db.run(`INSERT INTO groups (name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy, members) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy, members],
+        function (err) {
+            if (err) {
+                return res.status(500).json({ error: err.message });
+            }
+            res.status(201).json({ id: this.lastID });
+        }
+    );
+});
 
 // Serve the find-group page
 app.get('/find-group', (req, res) => {
