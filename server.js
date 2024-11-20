@@ -171,7 +171,7 @@ app.post('/logout', (req, res) => {
 
 // Serve the home page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'lfg-website', 'index.html'));
+    res.sendFile(path.join(__dirname, 'lfg-website', 'home.html'));
 });
 
 // Serve the find-group page
