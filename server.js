@@ -60,7 +60,7 @@ app.use(session({
     secret: 'your-secret-key',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Set to true if you're using HTTPS
+    cookie: { secure: true } // Set to true if you're using HTTPS
 }));
 
 // Serve the login page (this will be the first page)
@@ -68,7 +68,7 @@ app.get('/', (req, res) => {
     if (req.session.user) {
         return res.redirect('/'); // Redirect logged-in users to home
     }
-    res.sendFile(path.join(__dirname, 'lfg-website', 'login.html'));
+    res.sendFile(path.join(__dirname, 'lfg-website', 'index.html'));
 });
 
 // Serve the signup page
@@ -79,9 +79,9 @@ app.get('/signup', (req, res) => {
 // Serve the home page (after login)
 app.get('/home', (req, res) => {
     if (!req.session.user) {
-        return res.redirect('/'); // Redirect to login if not logged in
+        return res.redirect('/login.html'); // Redirect to login if not logged in
     }
-    res.sendFile(path.join(__dirname, 'lfg-website', 'index.html'));
+    res.sendFile(path.join(__dirname, 'lfg-website', 'home.html'));
 });
 
 // Serve the find-group page
