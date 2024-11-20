@@ -189,7 +189,22 @@ app.post('/api/groups', (req, res) => {
     const { name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy } = req.body;
     const members = JSON.stringify([createdBy]); // Initialize members with the creator
 
-    // Validate input
+    // Check if a group already exists with the exact same data
+    db.get(`
+        SELECT * FROM groups 
+        WHERE name = ? AND game = ? AND activity = ? 
+        AND teammatesRequired = ? AND difficultyRating = ? 
+        AND time = ?`,
+        [name, game, activity, teammatesRequired, difficultyRating, time], 
+        (err, row) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error checking for duplicates: ' + err.message });
+            }
+            if (row) {
+                return res.status(400).json({ error: 'A group with these exact details already exists.' });
+            }
+
+            // Validate input
     if (teammatesRequired > 12) {
         return res.status(400).json({ error: 'Teammates required cannot exceed 12.' });
     }
@@ -197,14 +212,17 @@ app.post('/api/groups', (req, res) => {
         return res.status(400).json({ error: 'Difficulty rating must be between 1 and 10.' });
     }
 
-    db.run(`INSERT INTO groups (name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy, members) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy, members],
-        function (err) {
-            if (err) {
-                return res.status(500).json({ error: err.message });
-            }
-            res.status(201).json({ id: this.lastID });
+            // No duplicate found, proceed with creating the new group
+            db.run(`INSERT INTO groups (name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy, members) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                [name, game, activity, teammatesRequired, difficultyRating, time, additionalInfo, createdBy, members],
+                function (err) {
+                    if (err) {
+                        return res.status(500).json({ error: err.message });
+                    }
+                    res.status(201).json({ id: this.lastID });
+                }
+            );
         }
     );
 });
