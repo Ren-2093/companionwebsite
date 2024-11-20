@@ -4,14 +4,9 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    position: relative;
-    min-height: 100%;
-    box-sizing: inherit;
-}
-
-html {
-    height: 100%;
-    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -53,10 +48,8 @@ h2 {
 
 footer {
     text-align: center;
-    position: absolute;
+    margin-top: auto;
     bottom: 0;
-    right: 0;
-    left: 0;
     width: 100%;
     padding: 35px;
     background-color: #333;
