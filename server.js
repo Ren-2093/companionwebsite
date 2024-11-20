@@ -79,7 +79,7 @@ app.get('/signup', (req, res) => {
 // Serve the home page (after login)
 app.get('/home', (req, res) => {
     if (!req.session.user) {
-        return res.redirect('/login.html'); // Redirect to login if not logged in
+        return res.redirect('/index.html'); // Redirect to login if not logged in
     }
     res.sendFile(path.join(__dirname, 'lfg-website', 'home.html'));
 });
