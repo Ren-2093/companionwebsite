@@ -9,6 +9,9 @@ const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Set 'trust proxy' to 1 if you're behind a reverse proxy (e.g., Nginx, Heroku)
+app.set('trust proxy', 1); // Enables secure cookies behind HTTPS proxies
+
 // Create and open the SQLite database
 const db = new sqlite3.Database('./database.db', (err) => {
     if (err) {
