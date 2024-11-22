@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const response = await fetch('/api/profile', { credentials: 'include' });
-const cors = require('cors');
 
 // Initialize the app
 const app = express();
@@ -375,11 +374,6 @@ app.get('/api/profile', (req, res) => {
     }
     res.status(200).json({ username: req.session.user.username }); // Return the username
 });
-
-app.use(cors({
-    origin: 'https://companionwebsite.onrender.com', // Replace with your frontend URL
-    credentials: true
-}));
 
 // Start the server
 app.listen(PORT, () => {
