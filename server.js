@@ -59,11 +59,11 @@ app.use(express.static(path.join(__dirname, 'lfg-website')));
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
-    saveUninitialized: false, // Prevent unnecessary session creation
+    saveUninitialized: false, // Avoid unnecessary session creation
     cookie: {
-        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-        httpOnly: true, // Prevent access to cookies via client-side scripts
-        sameSite: 'strict', // Mitigate CSRF attacks
+        secure: true, // Ensures cookies are sent only over HTTPS
+        httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
+        sameSite: 'strict' // Mitigates CSRF attacks
     }
 }));
 
