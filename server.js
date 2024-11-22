@@ -1,9 +1,9 @@
-const express = require('express');
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
-const session = require('express-session');
+const express = import('express');
+const sqlite3 = import('sqlite3').verbose();
+const path = import('path');
+const bodyParser = import('body-parser');
+const bcrypt = import('bcryptjs');
+const session = import('express-session');
 const response = await fetch('/api/profile', { credentials: 'include' });
 
 // Initialize the app
