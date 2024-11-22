@@ -5,20 +5,22 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Fetch the logged-in user's profile
     async function fetchUserProfile() {
-        try {
-            const response = await fetch('/api/profile');
-            const data = await response.json();
-            if (data.username) {
-                loggedInUsername = data.username;
-            } else {
-                alert('Failed to fetch user profile. Please log in again.');
-                window.location.href = '/'; // Redirect to login if no profile found
-            }
-        } catch (error) {
-            console.error('Error fetching user profile:', error);
-            alert('Unable to fetch user profile.');
+    try {
+        const response = await fetch('/api/profile', {
+            credentials: 'include' // Ensures cookies are sent with the request
+        });
+        const data = await response.json();
+        if (data.username) {
+            loggedInUsername = data.username;
+        } else {
+            alert('Failed to fetch user profile. Please log in again.');
+            window.location.href = '/'; // Redirect to login if no profile found
         }
+    } catch (error) {
+        console.error('Error fetching user profile:', error);
+        alert('Unable to fetch user profile.');
     }
+}
 
     // Set default time to the nearest 15-minute interval
     function setDefaultTime() {
