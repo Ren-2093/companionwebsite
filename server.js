@@ -4,8 +4,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
-const response = await fetch('/api/profile', { credentials: 'include' });
-const cors = require('cors');
 
 // Initialize the app
 const app = express();
@@ -61,12 +59,8 @@ app.use(express.static(path.join(__dirname, 'lfg-website')));
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
-    saveUninitialized: false,
-    cookie: {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-        maxAge: 1000 * 60 * 60 * 24 // 24 hours
-    }
+    saveUninitialized: true,
+    cookie: { secure: true } // Set to true if you're using HTTPS
 }));
 
 // Serve the login page (this will be the first page)
@@ -376,10 +370,6 @@ app.get('/api/profile', (req, res) => {
     res.status(200).json({ username: req.session.user.username }); // Return the username
 });
 
-app.use(cors({
-    origin: 'https://companionwebsite.onrender.com', // Replace with your frontend URL
-    credentials: true
-}));
 
 // Start the server
 app.listen(PORT, () => {
