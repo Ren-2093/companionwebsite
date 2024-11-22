@@ -371,12 +371,10 @@ app.post('/api/groups/:id/leave', (req, res) => {
 
 // Get the logged-in user's profile
 app.get('/api/profile', (req, res) => {
-    // Ensure the session exists and contains a user
     if (!req.session || !req.session.user) {
         return res.status(401).json({ error: 'Unauthorized. Please log in again.' });
     }
 
-    // Return the logged-in user's username
     res.status(200).json({ username: req.session.user.username });
 });
 
