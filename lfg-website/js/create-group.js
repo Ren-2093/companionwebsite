@@ -44,16 +44,15 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         const formData = new FormData(form);
         const data = {
-            name: formData.get('group-name'),
-            game: formData.get('game-name'),
-            activity: formData.get('activity-name'),
-            teammatesRequired: parseInt(formData.get('teammates-required')),
-            difficultyRating: parseInt(formData.get('difficulty-rating')),
-            time: formData.get('time'),
-            additionalInfo: formData.get('additional-info'),
-            createdBy: loggedInUsername // Use the logged-in username
-        };
-
+        name: formData.get('group-name'),
+        game: formData.get('game-name'),
+        activity: formData.get('activity-name'),
+        teammatesRequired: parseInt(formData.get('teammates-required')),
+        difficultyRating: parseInt(formData.get('difficulty-rating')),
+        time: formData.get('time'),
+        additionalInfo: formData.get('additional-info'),
+        createdBy: loggedInUsername // Use the logged-in username
+    };
         fetch('/api/groups', {
             method: 'POST',
             headers: {
