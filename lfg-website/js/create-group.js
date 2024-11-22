@@ -8,18 +8,17 @@ document.addEventListener('DOMContentLoaded', async function() {
     try {
         const response = await fetch('/api/profile', {
             method: 'GET',
-            credentials: 'include', // Ensures cookies are sent with the request
+            credentials: 'include', // Include cookies
         });
 
         if (!response.ok) {
-            // Handle non-200 HTTP responses
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         const data = await response.json();
 
         if (data.username) {
-            loggedInUsername = data.username; // Store the logged-in username
+            loggedInUsername = data.username;
         } else {
             alert('Failed to fetch user profile. Please log in again.');
             window.location.href = '/'; // Redirect to login page
