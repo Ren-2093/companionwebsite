@@ -362,12 +362,12 @@ app.post('/api/groups/:id/leave', (req, res) => {
     });
 });
 
-// Get current user's profile (logged-in username)
+// Get the logged-in user's profile
 app.get('/api/profile', (req, res) => {
     if (!req.session.user) {
-        return res.status(401).json({ error: 'Not logged in' });
+        return res.status(401).json({ error: 'Unauthorized' }); // Ensure the user is logged in
     }
-    res.status(200).json({ username: req.session.user.username });
+    res.status(200).json({ username: req.session.user.username }); // Return the username
 });
 
 
