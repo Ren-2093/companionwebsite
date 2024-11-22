@@ -133,12 +133,10 @@ app.post('/signup', (req, res) => {
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
-    // Validate inputs
     if (!username || !password) {
         return res.status(400).json({ error: 'Username and password are required' });
     }
 
-    // Retrieve the user from the database
     db.get('SELECT * FROM users WHERE username = ?', [username], (err, user) => {
         if (err) {
             return res.status(500).json({ error: 'Error retrieving user' });
@@ -147,18 +145,13 @@ app.post('/login', (req, res) => {
             return res.status(400).json({ error: 'Invalid username or password' });
         }
 
-        // Compare the provided password with the stored hash
         bcrypt.compare(password, user.password, (err, result) => {
             if (err) {
                 return res.status(500).json({ error: 'Error comparing passwords' });
             }
             if (result) {
-                // Successful login
-                req.session.user = { id: user.id, username: user.username }; // Store user in session
-                res.status(200).json({
-                    message: 'Login successful', 
-                    username: user.username // Include the username in the response
-                });
+                req.session.user = { id: user.id, username: user.username }; // Store session
+                res.status(200).json({ message: 'Login successful', username: user.username });
             } else {
                 return res.status(400).json({ error: 'Invalid username or password' });
             }
