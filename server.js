@@ -5,8 +5,7 @@ const path = import('path');
 const bodyParser = import('body-parser');
 const bcrypt = import('bcryptjs');
 const session = import('express-session');
-const response = await fetch('http://localhost:3000/api/profile');
-const response = await fetch('/api/profile', { credentials: 'include' });
+const response = await fetch('http://localhost:3000/api/profile'), { credentials: 'include' });
 
 // Initialize the app
 const app = express();
