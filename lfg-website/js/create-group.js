@@ -7,18 +7,27 @@ document.addEventListener('DOMContentLoaded', async function() {
     async function fetchUserProfile() {
     try {
         const response = await fetch('/api/profile', {
-            credentials: 'include' // Ensures cookies are sent with the request
+            method: 'GET',
+            credentials: 'include', // Ensures cookies are sent with the request
         });
+
+        if (!response.ok) {
+            // Handle non-200 HTTP responses
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
+
         if (data.username) {
-            loggedInUsername = data.username;
+            loggedInUsername = data.username; // Store the logged-in username
         } else {
             alert('Failed to fetch user profile. Please log in again.');
-            window.location.href = '/'; // Redirect to login if no profile found
+            window.location.href = '/'; // Redirect to login page
         }
     } catch (error) {
         console.error('Error fetching user profile:', error);
-        alert('Unable to fetch user profile.');
+        alert('Unable to fetch user profile. Please log in again.');
+        window.location.href = '/'; // Redirect to login page
     }
 }
 
