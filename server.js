@@ -1,5 +1,6 @@
 const express = import('express');
-const sqlite3 = import('sqlite3').verbose();
+import sqlite3 from 'sqlite3';
+const sqliteVerbose = sqlite3.verbose();
 const path = import('path');
 const bodyParser = import('body-parser');
 const bcrypt = import('bcryptjs');
