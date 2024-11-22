@@ -59,8 +59,11 @@ app.use(express.static(path.join(__dirname, 'lfg-website')));
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true } // Set to true if you're using HTTPS
+    saveUninitialized: false, // Ensure sessions are not unnecessarily created
+    cookie: { 
+        secure: process.env.NODE_ENV === 'production', // Secure cookies only in production
+        httpOnly: true // Protects against XSS
+    }
 }));
 
 // Serve the login page (this will be the first page)
@@ -151,7 +154,10 @@ app.post('/login', (req, res) => {
             if (result) {
                 // Successful login
                 req.session.user = { id: user.id, username: user.username }; // Store user in session
-                res.status(200).json({ message: 'Login successful' });
+                res.status(200).json({
+                    message: 'Login successful', 
+                    username: user.username // Include the username in the response
+                });
             } else {
                 return res.status(400).json({ error: 'Invalid username or password' });
             }
