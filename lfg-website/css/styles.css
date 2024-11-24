@@ -36,6 +36,7 @@ body::before {
     padding: 20px;
     border-radius: 10px;
     width: calc(100% - 40px); /* Dynamic width with padding accounted */
+    height:calc(100% - 40px);
     max-width: 1920px;
     margin: 20px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow for depth */
@@ -49,7 +50,7 @@ header {
     color: #e0f7f7; /* Subtle teal text */
     padding: 15px 20px;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px; /* Rounded corners for the header */
