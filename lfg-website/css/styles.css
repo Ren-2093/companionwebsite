@@ -4,7 +4,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #000; /* Fallback black background */
-    background-image: url('css/iammusic.jpg'); /* Replace with your image path */
+    background-image: url('css/iammusic.jpg'); /* Ensure the correct path */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -32,12 +32,13 @@ body::before {
 /* Semi-Transparent Content Container */
 .content-container {
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black box */
-    padding: 0px;
+    padding: 20px;
     border-radius: 10px;
-    min-width: 1920px;
+    width: 100%; /* Ensures full width */
     max-width: 1920px;
     margin: 20px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow for depth */
+    box-sizing: border-box; /* Prevents overflow */
 }
 
 /* Header Styling */
@@ -49,8 +50,13 @@ header {
     font-size: 1.8rem;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px; /* Rounded corners for the header */
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1920px;
 }
 
+/* Header Title */
 header h1 {
     margin: 0;
     color: #00cccc; /* Teal for highlight in the header */
@@ -61,7 +67,7 @@ nav ul {
     display: flex;
     justify-content: center;
     padding: 0;
-    margin: 15px 0 0;
+    margin: 15px 0;
     list-style: none;
 }
 
@@ -106,6 +112,7 @@ h2 {
     border-radius: 10px;
     color: #e0f7f7;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box; /* Prevents clipping of content */
 }
 
 #group-list h3 {
@@ -143,6 +150,7 @@ footer {
     color: #e0f7f7;
     margin-top: auto;
     font-size: 0.9rem;
+    width: 100%;
 }
 
 /* Responsive Design */
@@ -166,5 +174,10 @@ footer {
 
     h2 {
         font-size: 1.5rem;
+    }
+
+    #group-list {
+        padding: 15px;
+        max-width: 100%;
     }
 }
