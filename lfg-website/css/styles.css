@@ -11,9 +11,10 @@ body {
     color: #e0f7f7; /* Subtle teal text for high contrast */
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    display: flex; /* Flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure the body takes full height of viewport */
     line-height: 1.6;
     box-sizing: border-box;
 }
@@ -35,9 +36,9 @@ body::before {
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black box */
     padding: 20px;
     border-radius: 10px;
-    width: calc(100% - 40px); /* Dynamic width with padding accounted */
-    max-width: 1920px;
-    margin: 20px auto;
+    width: 100%; /* Full width of parent */
+    max-width: 500px; /* Restrict maximum width */
+    margin: auto; /* Center alignment */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow for depth */
     box-sizing: border-box; /* Prevents overflow */
     text-align: center; /* Center-align text within the container */
