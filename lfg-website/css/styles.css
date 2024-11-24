@@ -4,7 +4,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #000; /* Fallback black background */
-    background-image: url('images/iammusic.jpg'); /* Replace with your image path */
+    background-image: url('/iammusic.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
