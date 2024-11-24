@@ -1,10 +1,10 @@
-/* Simplistic black theme with teal highlights and faded background */
+/* Simplistic black theme with teal highlights and fixed layout */
 
 /* Body Styling */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #000; /* Fallback black background */
-    background-image: url('iammusic.jpg'); /* Ensure the correct path */
+    background-image: url('./iammusic.png'); /* Corrected relative path */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -15,12 +15,13 @@ body {
     flex-direction: column;
     min-height: 100vh;
     line-height: 1.6;
+    box-sizing: border-box;
 }
 
 /* Faded background effect using overlay */
 body::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -34,11 +35,12 @@ body::before {
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black box */
     padding: 20px;
     border-radius: 10px;
-    width: 100%; /* Ensures full width */
-    max-width: 1920px;
+    width: calc(100% - 40px); /* Dynamic width with padding accounted */
+    max-width: 1200px;
     margin: 20px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow for depth */
     box-sizing: border-box; /* Prevents overflow */
+    text-align: center; /* Center-align text within the container */
 }
 
 /* Header Styling */
@@ -52,8 +54,9 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px; /* Rounded corners for the header */
     margin: 20px auto;
-    width: 100%;
-    max-width: 1920px;
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    box-sizing: border-box;
 }
 
 /* Header Title */
@@ -93,7 +96,8 @@ nav ul li a:hover {
 main {
     padding: 20px;
     text-align: center;
-    flex: 1;
+    flex: 1; /* Ensure content grows to fill space if needed */
+    box-sizing: border-box;
 }
 
 /* Highlighted Headings */
@@ -148,9 +152,10 @@ footer {
     padding: 20px;
     background-color: #111; /* Black footer */
     color: #e0f7f7;
-    margin-top: auto;
     font-size: 0.9rem;
     width: 100%;
+    margin-top: auto; /* Push footer to bottom of flex container */
+    box-sizing: border-box;
 }
 
 /* Responsive Design */
