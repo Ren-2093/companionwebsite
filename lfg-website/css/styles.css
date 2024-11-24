@@ -37,7 +37,7 @@ body::before {
     padding: 20px;
     border-radius: 10px;
     width: 100%; /* Full width of parent */
-    max-width: 500px; /* Restrict maximum width */
+    max-width: 1400px; /* Restrict maximum width */
     margin: auto; /* Center alignment */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow for depth */
     box-sizing: border-box; /* Prevents overflow */
