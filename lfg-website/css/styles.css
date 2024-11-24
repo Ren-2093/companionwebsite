@@ -1,29 +1,48 @@
-/* Simplistic and appealing black and teal theme with professional enhancements */
+/* Simplistic black theme with teal highlights */
+
+/* Body Styling */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #000; /* Black background */
-    color: #e0f7f7; /* Light teal text */
+    background-image: url('path-to-your-image.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #e0f7f7; /* Subtle teal text for high contrast */
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    line-height: 1.6; /* Improves readability */
+    line-height: 1.6;
+}
+
+/* Transparent overlay for text readability */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Stronger black overlay */
+    z-index: -1;
 }
 
 /* Header Styling */
 header {
-    background-color: #008080; /* Teal background */
-    color: #fff; /* White text */
+    background-color: #111; /* Dark black for header */
+    color: #e0f7f7; /* Subtle teal text */
     padding: 15px 20px;
     text-align: center;
     font-size: 1.8rem;
     font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds subtle shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow */
 }
 
 header h1 {
     margin: 0;
+    color: #00cccc; /* Teal for highlight in the header */
 }
 
 /* Navigation Bar */
@@ -36,11 +55,11 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px; /* Increases spacing between links */
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: #fff; /* White text for links */
+    color: #e0f7f7; /* Subtle teal text */
     text-decoration: none;
     font-weight: bold;
     padding: 10px 15px;
@@ -49,21 +68,21 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #004d4d; /* Dark teal hover effect */
-    transform: scale(1.1); /* Adds subtle zoom on hover */
+    background-color: #222; /* Slight black hover effect */
+    transform: scale(1.1);
 }
 
 /* Main Content Area */
 main {
     padding: 20px;
     text-align: center;
-    flex: 1; /* Ensures main takes up available space */
+    flex: 1;
 }
 
 h2 {
-    color: #00cccc; /* Bright teal headings */
+    color: #00cccc; /* Teal highlights for section headings */
     margin-bottom: 10px;
-    font-size: 1.8rem; /* Slightly larger for prominence */
+    font-size: 1.8rem;
 }
 
 /* Group List Styling */
@@ -71,25 +90,26 @@ h2 {
     margin: 20px auto;
     padding: 20px;
     max-width: 800px;
-    background-color: #002626; /* Darker teal for sections */
+    background-color: #111; /* Blacker card sections */
     border-radius: 10px;
-    color: #e0f7f7; /* Matching light teal text */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds subtle shadow for depth */
+    color: #e0f7f7;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 #group-list h3 {
-    color: #00cccc; /* Bright teal for section headers */
+    color: #00cccc; /* Teal for section headers */
     margin-bottom: 10px;
 }
 
 #group-list p {
     margin-bottom: 10px;
+    color: #ccc; /* Softer text color for secondary information */
 }
 
 /* Button Styling */
 button {
-    background-color: #008080; /* Teal button background */
-    color: #fff;
+    background-color: #00cccc; /* Teal buttons for emphasis */
+    color: #000; /* Black text */
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -99,16 +119,16 @@ button {
 }
 
 button:hover {
-    background-color: #004d4d; /* Dark teal hover effect */
-    transform: scale(1.05); /* Subtle zoom on hover */
+    background-color: #008080; /* Darker teal on hover */
+    transform: scale(1.05);
 }
 
 /* Footer Styling */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #004d4d; /* Dark teal footer */
-    color: #e0f7f7; /* Light teal text */
+    background-color: #111; /* Black footer */
+    color: #e0f7f7;
     margin-top: auto;
     font-size: 0.9rem;
 }
