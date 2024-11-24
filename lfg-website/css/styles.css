@@ -4,7 +4,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #000; /* Fallback black background */
-    background-image: url('/iammusic.jpg'); /* Replace with your image path */
+    background-image: url('css/iammusic.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -32,9 +32,9 @@ body::before {
 /* Semi-Transparent Content Container */
 .content-container {
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black box */
-    padding: 20px;
+    padding: 0px;
     border-radius: 10px;
-    max-width: 800px;
+    max-width: 1920px;
     margin: 20px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow for depth */
 }
