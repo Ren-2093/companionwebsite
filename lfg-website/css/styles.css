@@ -3,9 +3,11 @@
 /* Body Styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #000; /* Fallback black background */
+    background-color: #0c0129; /* Fallback black background */
+    background-image:url(./imageb.png);
     background-size: cover;
     background-position: center;
+    background-blend-mode: soft-light;
     background-attachment: fixed;
     color: #e0f7f7; /* Subtle teal text for high contrast */
     margin: 0;
@@ -63,6 +65,7 @@ header {
 header h1 {
     margin: 0;
     color: #00cccc; /* Teal for highlight in the header */
+    font-family:big john;
 }
 
 /* Navigation Bar */
