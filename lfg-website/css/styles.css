@@ -114,7 +114,13 @@ input {
     color: white;
 }
 
-.label for="additional-info" {
+textarea {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+select {
     background: transparent;
     border: 2px solid white;
     color: white;
