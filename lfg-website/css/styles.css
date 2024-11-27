@@ -47,17 +47,15 @@ body::before {
 
 /* Header Styling */
 header {
-    background-color: #111; /* Dark black for header */
+    background-color: #0c0129; /* Dark black for header */
     color: #e0f7f7; /* Subtle teal text */
-    padding: 15px 20px;
     text-align: center;
     font-size: 1.2rem;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px; /* Rounded corners for the header */
     margin: 20px auto;
     width: calc(100% - 40px);
-    max-width: 1200px;
+    max-width: 1920px;
     box-sizing: border-box;
 }
 
