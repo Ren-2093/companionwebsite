@@ -65,7 +65,8 @@ header {
 header h1 {
     margin: 0;
     color: #00cccc; /* Teal for highlight in the header */
-    font-family:big john;
+    font-family:Gill Sans, sans-serif;
+    font-weight:bold;
 }
 
 /* Navigation Bar */
