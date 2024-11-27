@@ -111,6 +111,7 @@ main {
 input {
     background: transparent;
     border: 2px solid white;
+    color: white;
 }
 
 /* Highlighted Headings */
