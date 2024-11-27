@@ -108,6 +108,11 @@ main {
     align-items: center;
 }
 
+input {
+    background: transparent;
+    border: 2px solid white;
+}
+
 /* Highlighted Headings */
 h2 {
     color: #00cccc; /* Teal highlights for section headings */
@@ -150,7 +155,7 @@ button {
     padding: 15px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 18px;
+    margin-top: 13px;
     width: 130px;
     font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
