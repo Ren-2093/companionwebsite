@@ -33,11 +33,11 @@ body::before {
 
 /* Semi-Transparent Content Container */
 .content-container {
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black box */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black box */
     width: calc(100%); /* Dynamic width with padding accounted */
     height:calc(100%);
     max-width: 1920px;
-    margin: 20px auto;
+    margin: 0px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow for depth */
     box-sizing: border-box; /* Prevents overflow */
     text-align: center; /* Center-align text within the container */
