@@ -150,6 +150,8 @@ button {
     padding: 15px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 18px;
+    width: 130px;
     font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
