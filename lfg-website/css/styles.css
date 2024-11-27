@@ -34,7 +34,8 @@ body::before {
 /* Semi-Transparent Content Container */
 .content-container {
     background-color: rgba(12, 1, 41, 0.3); /* Semi-transparent black box */
-    width: calc(100%); /* Dynamic width with padding accounted */
+    width: 100%; /* Dynamic width with padding accounted */
+    top: 80px;
     height:calc(100%);
     max-width: 1920px;
     margin: 0px auto;
