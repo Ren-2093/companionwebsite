@@ -2,7 +2,7 @@
 
 /* Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family:Gill Sans, sans-serif;
     background-color: #0c0129; /* Fallback black background */
     background-image:url(./imageb.png);
     background-size: cover;
@@ -35,6 +35,7 @@ body::before {
 .content-container {
     background-color: rgba(12, 1, 41, 0.3); /* Semi-transparent black box */
     width: 100%; /* Dynamic width with padding accounted */
+    font-family:Gill Sans, sans-serif;
     top: 80px;
     height:calc(100%);
     max-width: 1920px;
@@ -48,6 +49,7 @@ body::before {
 header {
     background-color: rgba(12, 1, 41, 0.3); /* Dark black for header */
     color: #e0f7f7; /* Subtle teal text */
+    font-family:Gill Sans, sans-serif;
     text-align: center;
     font-size: 1.2rem;
     font-weight: bold;
@@ -104,6 +106,7 @@ main {
 /* Highlighted Headings */
 h2 {
     color: #00cccc; /* Teal highlights for section headings */
+    font-family:Gill Sans, sans-serif;
     margin-bottom: 10px;
     font-size: 1.8rem;
 }
@@ -113,6 +116,7 @@ h2 {
     margin: 20px auto;
     padding: 20px;
     max-width: 800px;
+    font-family:Gill Sans, sans-serif;
     background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
     border-radius: 10px;
     color: #e0f7f7;
@@ -122,11 +126,13 @@ h2 {
 
 #group-list h3 {
     color: #00cccc; /* Teal for section headers */
+    font-family:Gill Sans, sans-serif;
     margin-bottom: 10px;
 }
 
 #group-list p {
     margin-bottom: 10px;
+    font-family:Gill Sans, sans-serif;
     color: #ccc; /* Softer text color for secondary information */
 }
 
@@ -134,6 +140,7 @@ h2 {
 button {
     background-color: #00cccc; /* Teal buttons for emphasis */
     color: #000; /* Black text */
+    font-family:Gill Sans, sans-serif;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -150,9 +157,10 @@ button:hover {
 /* Footer Styling */
 footer {
     text-align: center;
+    font-family:Gill Sans, sans-serif;
     padding: 20px;
     background-color: #111; /* Black footer */
-    color: #e0f7f7;
+    color: #0c0129;
     font-size: 0.9rem;
     width: 100%;
     margin-top: auto; /* Push footer to bottom of flex container */
