@@ -36,7 +36,7 @@ body::before {
     background-color: rgba(12, 1, 41, 0.3); /* Semi-transparent black box */
     width: 1920px; /* Dynamic width with padding accounted */
     font-family:Gill Sans, sans-serif;
-    top: 80px;
+    padding-top: 80px;
     height:calc(100%);
     max-width: 1920px;
     margin-left: auto;
