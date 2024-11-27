@@ -34,7 +34,7 @@ body::before {
 /* Semi-Transparent Content Container */
 .content-container {
     background-color: rgba(12, 1, 41, 0.3); /* Semi-transparent black box */
-    width: 100%; /* Dynamic width with padding accounted */
+    width: 1920px; /* Dynamic width with padding accounted */
     font-family:Gill Sans, sans-serif;
     top: 80px;
     height:calc(100%);
@@ -159,8 +159,8 @@ footer {
     text-align: center;
     font-family:Gill Sans, sans-serif;
     padding: 20px;
-    background-color: #111; /* Black footer */
-    color: #0c0129;
+    background-color: #0c0129; /* Black footer */
+    color: #ffffff;
     font-size: 0.9rem;
     width: 100%;
     margin-top: auto; /* Push footer to bottom of flex container */
