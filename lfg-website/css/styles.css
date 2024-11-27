@@ -53,8 +53,8 @@ header {
     font-size: 1.2rem;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    margin: 20px auto;
-    width: calc(100% - 40px);
+    margin: 0px auto;
+    width: 100%;
     max-width: 1920px;
     box-sizing: border-box;
 }
