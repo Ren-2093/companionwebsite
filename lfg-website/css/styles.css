@@ -143,10 +143,10 @@ h2 {
 
 /* Button Styling */
 button {
-    background-color: #00cccc; /* Teal buttons for emphasis */
-    color: #000; /* Black text */
+    background-color: rgba(255,255,255,0);
+    color: white; /* White text */
     font-family:Gill Sans, sans-serif;
-    border: none;
+    border: 3px solid white;
     padding: 15px;
     border-radius: 5px;
     cursor: pointer;
