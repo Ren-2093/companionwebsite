@@ -114,6 +114,12 @@ input {
     color: white;
 }
 
+textarea {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
 /* Highlighted Headings */
 h2 {
     color: #00cccc; /* Teal highlights for section headings */
