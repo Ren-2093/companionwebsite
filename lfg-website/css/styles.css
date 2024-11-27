@@ -45,7 +45,7 @@ body::before {
 
 /* Header Styling */
 header {
-    background-color: #0c0129; /* Dark black for header */
+    background-color: rgba(12, 1, 41, 0.7); /* Dark black for header */
     color: #e0f7f7; /* Subtle teal text */
     text-align: center;
     font-size: 1.2rem;
