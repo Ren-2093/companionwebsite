@@ -129,7 +129,7 @@ select {
 option {
     background-color: 0c0129;
     border: 2px solid white;
-    text-color: white;
+    color: white;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator{
