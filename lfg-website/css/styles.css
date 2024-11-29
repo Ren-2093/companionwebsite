@@ -127,9 +127,8 @@ select {
 }
 
 option {
-    background-color: 0c0129;
-    border: 2px solid white;
-    color: white;
+     background: transparent !important;
+     color: #ffffff;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator{
