@@ -120,6 +120,11 @@ textarea {
     color: white;
 }
 
+select {
+     background: transparent !important;
+     color: #ffffff;
+}
+
 option {
      background: transparent !important;
      color: #ffffff;
