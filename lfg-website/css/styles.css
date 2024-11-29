@@ -122,11 +122,11 @@ textarea {
 
 select {
      background: transparent !important;
-     color: black;
+     color: white;
 }
 
 option {
-     background: transparent !important;
+     background: #0c0129;
      color: black;
 }
 
