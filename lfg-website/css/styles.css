@@ -132,6 +132,10 @@ option {
     color: white;
 }
 
+input[type="time"]::-webkit-calendar-picker-indicator{
+  filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
+}
+
 /* Highlighted Headings */
 h2 {
     color: #00cccc; /* Teal highlights for section headings */
