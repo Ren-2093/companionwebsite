@@ -120,12 +120,6 @@ textarea {
     color: white;
 }
 
-select {
-     background: transparent !important;
-     color: #ffffff;
-    border: 2px solid white;
-}
-
 option {
      background: transparent !important;
      color: #ffffff;
