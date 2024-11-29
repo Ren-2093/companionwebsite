@@ -121,9 +121,9 @@ textarea {
 }
 
 select {
-    background: transparent;
+     background: transparent !important;
+     color: #ffffff;
     border: 2px solid white;
-    color: white;
 }
 
 option {
