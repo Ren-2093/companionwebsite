@@ -4,9 +4,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
-const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser');
-const groupRoutes = require('./routes/groups'); // Path to your groups route
 
 // Initialize the app
 const app = express();
@@ -380,19 +377,6 @@ app.get('/api/profile', (req, res) => {
 
     res.status(200).json({ username: req.session.user.username });
 });
-
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/your_database_name', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => {
-    console.log('Connected to MongoDB');
-}).catch(err => {
-    console.error('Database connection error:', err);
-});
-
-// Routes
-app.use('/api/groups', groupRoutes);
 
 
 // Start the server
