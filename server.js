@@ -86,6 +86,12 @@ app.use(session({
         sameSite: 'strict' // Mitigates CSRF attacks
     }
 }));
+// Assuming you're using some authentication middleware
+app.use((req, res, next) => {
+    // Mock authentication middleware to set req.user (replace with actual auth logic)
+    req.user = { username: 'user123' }; // Example, replace with actual authenticated user
+    next();
+});
 
 // Serve the login page (this will be the first page)
 app.get('/', (req, res) => {
