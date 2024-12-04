@@ -55,6 +55,7 @@ const db = new sqlite3.Database('./database.db', (err) => {
             }
         });
     }
+});
         db.run(`
             CREATE TABLE IF NOT EXISTS groupees (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -77,7 +78,7 @@ const db = new sqlite3.Database('./database.db', (err) => {
         });
     });
     db.close();
-});
+
 
 // Middleware
 app.use(bodyParser.json());
