@@ -76,7 +76,6 @@ const db = new sqlite3.Database('./database.db', (err) => {
                 console.log('Groups table created successfully');
             }
         });
-    });
     db.close();
 
 
