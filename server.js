@@ -6,21 +6,6 @@ const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const deleteListing = require('./deletelisting'); // Correct path to the file
 const router = express.Router();
-const db = new sqlite3.Database('./groupees.sqlite');
-
-// API Route to Delete a Group
-app.delete('/api/groups/:id', (req, res) => {
-    const listingId = parseInt(req.params.id, 10); // The group ID from the URL parameter
-    const currentUser = req.user.username; // Assuming `req.user` contains the authenticated user's details
-
-    deleteListing(listingId, currentUser, (result) => {
-        if (result.success) {
-            res.status(200).json({ message: result.message });
-        } else {
-            res.status(400).json({ message: result.message, error: result.error });
-        }
-    });
-});
 
 // Initialize the app
 const app = express();
