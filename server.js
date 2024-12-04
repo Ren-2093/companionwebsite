@@ -55,9 +55,6 @@ const db = new sqlite3.Database('./database.db', (err) => {
             }
         });
     }
-    const db = require('./server.js'); // server.js now points to groupees.sqlite
-    
-    db.serialize(() => {
         db.run(`
             CREATE TABLE IF NOT EXISTS groupees (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
