@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const db = new sqlite3.Database('./groupees.sqlite');
+const deleteListing = require('./deleteListing'); // Adjust the path to where the function is stored
+const router = express.Router();
 
 // Initialize the app
 const app = express();
@@ -379,51 +381,23 @@ app.get('/api/profile', (req, res) => {
     res.status(200).json({ username: req.session.user.username });
 });
 
-const db = new sqlite3.Database('./groupees.sqlite');
-
-/**
- * Deletes a listing if the authenticated user is the creator.
- * @param {number} listingId - The ID of the listing to delete.
- * @param {string} currentUser - The username of the currently authenticated user.
- * @param {function} callback - A callback function to handle the result.
- */
-function deleteListing(listingId, currentUser, callback) {
-    // Step 1: Check if the listing exists and verify the creator
-    const query = `SELECT createdBy FROM groups WHERE id = ?`;
-    db.get(query, [listingId], (err, row) => {
-        if (err) {
-            callback({ success: false, message: 'Database error', error: err });
-            return;
-        }
-
-        if (!row) {
-            callback({ success: false, message: 'Listing not found' });
-            return;
-        }
-
-        if (row.createdBy !== currentUser) {
-            callback({ success: false, message: 'Unauthorized: You are not the creator of this listing' });
-            return;
-        }
-
-        // Step 2: Delete the listing if the user is the creator
-        const deleteQuery = `DELETE FROM groups WHERE id = ?`;
-        db.run(deleteQuery, [listingId], function (deleteErr) {
-            if (deleteErr) {
-                callback({ success: false, message: 'Error deleting the listing', error: deleteErr });
-                return;
-            }
-
-            if (this.changes === 0) {
-                callback({ success: false, message: 'No listing was deleted' });
-            } else {
-                callback({ success: true, message: 'Listing deleted successfully' });
-            }
-        });
-    });
-}
 
 module.exports = deleteListing;
+
+router.delete('/api/groups/:id', (req, res) => {
+    const listingId = parseInt(req.params.id, 10);
+    const currentUser = req.user.username; // Assume `req.user` contains authenticated user info
+
+    deleteListing(listingId, currentUser, (result) => {
+        if (result.success) {
+            res.status(200).json({ message: result.message });
+        } else {
+            res.status(400).json({ message: result.message, error: result.error });
+        }
+    });
+});
+
+module.exports = router;
 
 
 // Start the server
