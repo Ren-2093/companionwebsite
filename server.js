@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
+const groupRoutes = require('./routes/groups');
 
 // Initialize the app
 const app = express();
@@ -377,6 +378,8 @@ app.get('/api/profile', (req, res) => {
 
     res.status(200).json({ username: req.session.user.username });
 });
+
+app.use('/api/groups', groupRoutes);
 
 
 // Start the server
