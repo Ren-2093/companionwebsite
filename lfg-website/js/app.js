@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p>Members: ${JSON.parse(group.members).join(', ') || 'No members yet'}</p>
                         <button class="join-group" data-id="${group.id}">Join</button>
                         <button class="leave-group" data-id="${group.id}">Leave</button>
+                        <button class="delete-btn" data-group-id="${group.id}">Delete</button>
                     </div>
                 `).join('');
 
