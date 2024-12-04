@@ -99,6 +99,42 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error leaving group:', error));
     }
 
+    // Function to delete a group by ID
+    async function deleteGroup(groupId) {
+        try {
+            const response = await fetch(`/api/groups/${groupId}`, {
+                method: 'DELETE',
+                credentials: 'include', // Include cookies for user authentication
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (response.ok) {
+                alert('Listing deleted successfully!');
+                // Remove the listing from the UI
+                document.getElementById(`group-${groupId}`).remove();
+            } else if (response.status === 403) {
+                alert('You are not authorized to delete this listing.');
+            } else {
+                alert('Failed to delete the listing. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error deleting the group:', error);
+            alert('An error occurred while trying to delete the listing.');
+        }
+    }
+
+    // Add event listeners to delete buttons
+    groupList.addEventListener('click', function (event) {
+        if (event.target.classList.contains('delete-btn')) {
+            const groupId = event.target.dataset.groupId; // Ensure the button includes this data attribute
+            if (confirm('Are you sure you want to delete this listing?')) {
+                deleteGroup(groupId);
+            }
+        }
+    });
+
     // Handle filter changes
     filterSelect.addEventListener('change', function() {
         fetchGroups(this.value);
