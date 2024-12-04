@@ -4,7 +4,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
-const router = express.Router();
 
 // Initialize the app
 const app = express();
