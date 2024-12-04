@@ -4,7 +4,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
-const db = new sqlite3.Database('./groupees.sqlite');
 const deleteListing = require('./deleteListing'); // Adjust the path to where the function is stored
 const router = express.Router();
 
