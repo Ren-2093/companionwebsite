@@ -4,8 +4,23 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
-const deleteListing = require('./deleteListing'); // Adjust the path to where the function is stored
+const deleteListing = require('./deletelisting'); // Correct path to the file
 const router = express.Router();
+const db = new sqlite3.Database('./groupees.sqlite');
+
+// API Route to Delete a Group
+app.delete('/api/groups/:id', (req, res) => {
+    const listingId = parseInt(req.params.id, 10); // The group ID from the URL parameter
+    const currentUser = req.user.username; // Assuming `req.user` contains the authenticated user's details
+
+    deleteListing(listingId, currentUser, (result) => {
+        if (result.success) {
+            res.status(200).json({ message: result.message });
+        } else {
+            res.status(400).json({ message: result.message, error: result.error });
+        }
+    });
+});
 
 // Initialize the app
 const app = express();
@@ -381,11 +396,47 @@ app.get('/api/profile', (req, res) => {
 });
 
 
-module.exports = deleteListing;
+// The deleteListing function
+function deleteListing(listingId, currentUser, callback) {
+    // Step 1: Check if the listing exists and verify the creator
+    const query = `SELECT createdBy FROM groups WHERE id = ?`;
+    db.get(query, [listingId], (err, row) => {
+        if (err) {
+            callback({ success: false, message: 'Database error', error: err });
+            return;
+        }
 
-router.delete('/api/groups/:id', (req, res) => {
-    const listingId = parseInt(req.params.id, 10);
-    const currentUser = req.user.username; // Assume `req.user` contains authenticated user info
+        if (!row) {
+            callback({ success: false, message: 'Listing not found' });
+            return;
+        }
+
+        if (row.createdBy !== currentUser) {
+            callback({ success: false, message: 'Unauthorized: You are not the creator of this listing' });
+            return;
+        }
+
+        // Step 2: Delete the listing if the user is the creator
+        const deleteQuery = `DELETE FROM groups WHERE id = ?`;
+        db.run(deleteQuery, [listingId], function (deleteErr) {
+            if (deleteErr) {
+                callback({ success: false, message: 'Error deleting the listing', error: deleteErr });
+                return;
+            }
+
+            if (this.changes === 0) {
+                callback({ success: false, message: 'No listing was deleted' });
+            } else {
+                callback({ success: true, message: 'Listing deleted successfully' });
+            }
+        });
+    });
+}
+
+// API Route to Delete a Group
+app.delete('/api/groups/:id', (req, res) => {
+    const listingId = parseInt(req.params.id, 10); // The group ID from the URL parameter
+    const currentUser = req.user.username; // Assuming `req.user` contains the authenticated user's details
 
     deleteListing(listingId, currentUser, (result) => {
         if (result.success) {
@@ -395,8 +446,6 @@ router.delete('/api/groups/:id', (req, res) => {
         }
     });
 });
-
-module.exports = router;
 
 
 // Start the server
