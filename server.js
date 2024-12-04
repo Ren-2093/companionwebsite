@@ -56,28 +56,6 @@ const db = new sqlite3.Database('./database.db', (err) => {
         });
     }
 });
-        db.run(`
-            CREATE TABLE IF NOT EXISTS groupees (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                game TEXT NOT NULL,
-                activity TEXT NOT NULL,
-                teammatesRequired INTEGER CHECK(teammatesRequired BETWEEN 1 AND 12),
-                difficultyRating INTEGER CHECK(difficultyRating BETWEEN 1 AND 10),
-                time TEXT NOT NULL,
-                additionalInfo TEXT,
-                createdBy TEXT NOT NULL,
-                members TEXT
-            )
-        `, (err) => {
-            if (err) {
-                console.error('Error creating groups table', err);
-            } else {
-                console.log('Groups table created successfully');
-            }
-        });
-    db.close();
-
 
 // Middleware
 app.use(bodyParser.json());
@@ -92,12 +70,6 @@ app.use(session({
         sameSite: 'strict' // Mitigates CSRF attacks
     }
 }));
-// Assuming you're using some authentication middleware
-app.use((req, res, next) => {
-    // Mock authentication middleware to set req.user (replace with actual auth logic)
-    req.user = { username: 'user123' }; // Example, replace with actual authenticated user
-    next();
-});
 
 // Serve the login page (this will be the first page)
 app.get('/', (req, res) => {
@@ -405,58 +377,6 @@ app.get('/api/profile', (req, res) => {
     }
 
     res.status(200).json({ username: req.session.user.username });
-});
-
-
-// The deleteListing function
-function deleteListing(listingId, currentUser, callback) {
-    // Step 1: Check if the listing exists and verify the creator
-    const query = `SELECT createdBy FROM groups WHERE id = ?`;
-    db.get(query, [listingId], (err, row) => {
-        if (err) {
-            callback({ success: false, message: 'Database error', error: err });
-            return;
-        }
-
-        if (!row) {
-            callback({ success: false, message: 'Listing not found' });
-            return;
-        }
-
-        if (row.createdBy !== currentUser) {
-            callback({ success: false, message: 'Unauthorized: You are not the creator of this listing' });
-            return;
-        }
-
-        // Step 2: Delete the listing if the user is the creator
-        const deleteQuery = `DELETE FROM groups WHERE id = ?`;
-        db.run(deleteQuery, [listingId], function (deleteErr) {
-            if (deleteErr) {
-                callback({ success: false, message: 'Error deleting the listing', error: deleteErr });
-                return;
-            }
-
-            if (this.changes === 0) {
-                callback({ success: false, message: 'No listing was deleted' });
-            } else {
-                callback({ success: true, message: 'Listing deleted successfully' });
-            }
-        });
-    });
-}
-
-// API Route to Delete a Group
-app.delete('/api/groups/:id', (req, res) => {
-    const listingId = parseInt(req.params.id, 10); // The group ID from the URL parameter
-    const currentUser = req.user.username; // Assuming `req.user` contains the authenticated user's details
-
-    deleteListing(listingId, currentUser, (result) => {
-        if (result.success) {
-            res.status(200).json({ message: result.message });
-        } else {
-            res.status(400).json({ message: result.message, error: result.error });
-        }
-    });
 });
 
 
