@@ -423,6 +423,7 @@ function deleteListing(listingId, currentUser, callback) {
     });
 }
 
+module.exports = deleteListing;
 
 
 // Start the server
