@@ -7,7 +7,6 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const groupRoutes = require('./routes/groups'); // Path to your groups route
-const app = express();
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/your_database_name', {
