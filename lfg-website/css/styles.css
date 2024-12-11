@@ -214,10 +214,7 @@ h2 {
             background-color: #0c0129;
             border: 1px solid white;
             border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
         }
 
         .close-button {
