@@ -9,7 +9,7 @@ body {
     background-position: center;
     background-blend-mode: soft-light;
     background-attachment: fixed;
-    color: #e0f7f7; /* Subtle teal text for high contrast */
+    color: #BFA100; /* Subtle teal text for high contrast */
     margin: 0;
     padding: 0;
     display: flex;
@@ -82,7 +82,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #BFA100; /* Subtle teal text */
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: bold;
     padding: 10px 15px;
