@@ -48,7 +48,7 @@ body::before {
 /* Header Styling */
 header {
     background-color: rgba(12, 1, 41, 0.3); /* Dark black for header */
-    color: #00A86B; /* Subtle teal text */
+    color: #008080; /* Subtle teal text */
     font-family:Gill Sans, sans-serif;
     text-align: center;
     font-size: 1.2rem;
@@ -63,7 +63,7 @@ header {
 /* Header Title */
 header h1 {
     margin: 0;
-    color: #BFA100; /* Teal for highlight in the header */
+    color: #008080; /* Teal for highlight in the header */
     font-family:Gill Sans, sans-serif;
     font-weight:bold;
 }
@@ -155,7 +155,7 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 
 /* Highlighted Headings */
 h2 {
-    color: #00A86B; /* Teal highlights for section headings */
+    color: #008080; /* Teal highlights for section headings */
     font-family:Gill Sans, sans-serif;
     margin-bottom: 10px;
     font-size: 1.8rem;
@@ -175,7 +175,7 @@ h2 {
 }
 
 #group-list h3 {
-    color: #00A86B; /* Teal for section headers */
+    color: #008080; /* Teal for section headers */
     font-family:Gill Sans, sans-serif;
     margin-bottom: 10px;
 }
@@ -239,7 +239,7 @@ button {
 }
 
 button:hover {
-    background-color: #00A86B; /* Darker teal on hover */
+    background-color: #008080; /* Darker teal on hover */
     transform: scale(1.05);
 }
 
