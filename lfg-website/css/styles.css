@@ -9,7 +9,7 @@ body {
     background-position: center;
     background-blend-mode: soft-light;
     background-attachment: fixed;
-    color: #BFA100; /* Subtle teal text for high contrast */
+    color: #FFFFFF; /* Subtle teal text for high contrast */
     margin: 0;
     padding: 0;
     display: flex;
