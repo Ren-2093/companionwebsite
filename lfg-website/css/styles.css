@@ -211,6 +211,9 @@ h2 {
 
         .modal-content {
             padding: 20px;
+            background-color: #0c0129;
+            border: 1px solid white;
+            border-radius: 5px;
         }
 
         .close-button {
