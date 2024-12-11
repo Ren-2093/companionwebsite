@@ -186,6 +186,43 @@ h2 {
     color: #ccc; /* Softer text color for secondary information */
 }
 
+/* Styles for group boxes */
+.group-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.group-box:hover {
+    background-color: #f1f1f1;
+}
+
+.group-box .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.group-box .details {
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+    font-size: 14px;
+    color: #555;
+}
+
+.group-box .details p {
+    margin: 5px 0;
+}
+
+/* Expanded box styles */
+.group-box.expanded .details {
+    display: block;
+}
+
 /* Button Styling */
 button {
     background-color: rgba(255,255,255,0);
