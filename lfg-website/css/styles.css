@@ -165,8 +165,9 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 
 .home-page h2{
     font-family: "Nunito", sans-serif;
-    padding-top: 300px;
+    padding-top: 60px;
     padding-left: 60px;
+    padding-right: 900px;
 }
 
 .home-page p{
