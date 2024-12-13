@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Created By:</strong> ${group.createdBy}</p>
                 <p><strong>Difficulty:</strong> ${group.difficultyRating}/10</p>
                 <p><strong>Additional Info:</strong> ${group.additionalInfo || 'N/A'}</p>
-                <p><strong>Players:</strong> ${group.members ? JSON.parse(group.members).join(', ') : 'None'} (${group.members ? JSON.parse(group.members).length : 0}/${group.teammatesRequired})</p>
+                <p><strong>Players (${group.members ? JSON.parse(group.members).length : 0}/${group.teammatesRequired}):</strong> ${group.members ? JSON.parse(group.members).join(', ') : 'None'}</p>
                 <button id="join-button">Join Group</button>
                 <button id="leave-button">Leave Group</button>
             </div>
