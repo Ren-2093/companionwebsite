@@ -4,7 +4,7 @@
 body {
     font-family: Gill Sans, sans-serif;
     background: linear-gradient(to bottom right, #0c0129 70%, #b09ac8 30%); /* Gradient with more purple and a darker lilac */
-    background-image: linear-gradient(to bottom right, #0c0129 70%, #b09ac8 30%), url(./imageb.png);
+    background-image: linear-gradient(to bottom right, #0c0129 70%, #b09ac8 30%);
     background-size: cover;
     background-position: center;
     background-blend-mode: soft-light;
