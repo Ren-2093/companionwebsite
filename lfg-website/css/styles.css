@@ -3,12 +3,11 @@
 /* Body Styling */
 body {
     font-family: Gill Sans, sans-serif;
-    background: linear-gradient(to bottom right, #0c0129 70%, #b09ac8 30%); /* Gradient with more purple and a darker lilac */
+    background: linear-gradient(to bottom right, #0c0129 80%, #805aad 20%); /* Gradient with rich purple */
     background-size: cover;
     background-position: center;
-    background-blend-mode: soft-light;
     background-attachment: fixed;
-    color: #FFFFFF; /* Subtle teal text for high contrast */
+    color: #FFFFFF;
     margin: 0;
     padding: 0;
     display: flex;
@@ -33,73 +32,81 @@ body::before {
 
 /* Semi-Transparent Content Container */
 .content-container {
-    background-color: rgba(12, 1, 41, 0.3); /* Semi-transparent black box */
-    width: 1920px; /* Dynamic width with padding accounted */
-    font-family:Gill Sans, sans-serif;
-    height:calc(100%);
-    max-width: 1920px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow for depth */
-    box-sizing: border-box; /* Prevents overflow */
-    text-align: center; /* Center-align text within the container */
+    max-width: 800px;
+    margin: 50px auto;
+    background: rgba(12, 1, 41, 0.8); /* Semi-transparent black box */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.content-container h2 {
+    font-size: 2rem;
+    color: #24c5d4; /* Teal for highlights */
+    margin-bottom: 20px;
+}
+
+.content-container p {
+    color: #e0e0e0;
+    line-height: 1.8;
 }
 
 /* Header Styling */
 header {
-    background-color: rgba(12, 1, 41, 0.3); /* Dark black for header */
-    color: #24c5d4; /* Subtle teal text */
-    font-family:Gill Sans, sans-serif;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    margin: 0px auto;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 1920px;
-    box-sizing: border-box;
+    background: rgba(12, 1, 41, 0.8); /* Transparent black */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Header Title */
 header h1 {
     margin: 0;
-    color: #24c5d4; /* Teal for highlight in the header */
-    font-family:Gill Sans, sans-serif;
-    font-weight:bold;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #24c5d4;
 }
 
 /* Navigation Bar */
 nav ul {
     display: flex;
     justify-content: center;
-    padding: 0;
-    margin: 15px 0;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav ul li a {
     color: #FFFFFF;
     text-decoration: none;
+    font-size: 1rem;
     font-weight: bold;
+    text-transform: uppercase;
     padding: 10px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s, color 0.3s;
 }
 
 nav ul li a:hover {
-    background-color: #222; /* Slight black hover effect */
-    transform: scale(1.1);
+    background-color: #24c5d4;
+    color: #0c0129;
 }
 
 /* Main Content Area */
 main {
+    margin-top: 100px; /* Offset to account for fixed header */
     text-align: center;
-    flex: 1; /* Ensure content grows to fill space if needed */
-    box-sizing: border-box;
+    flex: 1;
 }
 
 .create-game-form {
@@ -256,15 +263,15 @@ button:hover {
 /* Footer Styling */
 footer {
     text-align: center;
-    font-family:Gill Sans, sans-serif;
     padding: 20px;
-    background-color: #0c0129; /* Black footer */
-    color: #ffffff;
+    background-color: #0c0129; /* Dark footer */
+    color: #FFFFFF;
     font-size: 0.9rem;
     width: 100%;
-    margin-top: auto; /* Push footer to bottom of flex container */
-    box-sizing: border-box;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.3);
+    margin-top: auto; /* Push footer to bottom of page */
 }
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -281,7 +288,11 @@ footer {
         padding: 15px;
     }
 
-    header {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .content-container h2 {
         font-size: 1.5rem;
     }
 
