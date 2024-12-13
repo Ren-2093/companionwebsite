@@ -3,7 +3,10 @@
 /* Body Styling */
 body {
     font-family: Gill Sans, sans-serif;
-    background: linear-gradient(to bottom right, #0c0129 80%, #805aad 20%); /* Gradient with rich purple */
+    background: linear-gradient(to bottom right, 
+                #0c0129 0%, 
+                color-mix(in srgb, #0c0129 70%, #805aad) 50%, 
+                #b09ac8 100%);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
