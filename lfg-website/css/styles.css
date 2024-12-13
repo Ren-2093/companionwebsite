@@ -157,6 +157,7 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 
 .login-page {
     display: flex;
+    font-family: "Nunito", sans-serif;
     align-items: center;
     justify-content: center;
 }
