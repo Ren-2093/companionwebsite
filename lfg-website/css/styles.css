@@ -2,9 +2,8 @@
 
 /* Body Styling */
 body {
-    font-family:Gill Sans, sans-serif;
-    background-color: #0c0129; /* Fallback black background */
-    background-image:url(./imageb.png);
+    font-family: Gill Sans, sans-serif;
+    background: linear-gradient(to bottom right, #0c0129, #E6E6FA); /* Gradient from dark purple to lilac */
     background-size: cover;
     background-position: center;
     background-blend-mode: soft-light;
@@ -18,6 +17,7 @@ body {
     line-height: 1.6;
     box-sizing: border-box;
 }
+
 
 /* Faded background effect using overlay */
 body::before {
