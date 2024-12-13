@@ -28,7 +28,6 @@ body {
     min-height: 100vh;
     line-height: 1.6;
     box-sizing: border-box;
-}  box-sizing: border-box;
 }
 
 
@@ -75,7 +74,6 @@ header {
     text-align: center;
     padding: 30px 0; /* Increased padding for larger header */
     z-index: 1000;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -167,6 +165,7 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 
 .home-page h2{
     font-family: "Nunito", sans-serif;
+    padding-top: 100px
     padding-left: 120px
     font-weight: 700;
 }
@@ -175,6 +174,7 @@ input[type="time"]::-webkit-calendar-picker-indicator{
     font-family: "Nunito", sans-serif;
     display: flex;
     padding-top: 200px;
+    text-align: center
 }
   
 
