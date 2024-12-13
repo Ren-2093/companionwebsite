@@ -155,9 +155,13 @@ input[type="time"]::-webkit-calendar-picker-indicator{
   filter: invert(100%) sepia(0%) saturate(3207%) hue-rotate(0deg) brightness(10000000%) contrast(100%);
 }
 
+.login-page {
+    display: flex;
+    align-items: center;
+}
+
 
 .login-page h1 {
-    text-align: center;
     font-size: 72px;
     font-family: "Nunito", sans-serif;
 }
