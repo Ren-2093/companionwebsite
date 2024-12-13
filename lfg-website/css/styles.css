@@ -160,6 +160,9 @@ input[type="time"]::-webkit-calendar-picker-indicator{
     align-items: center;
 }
 
+.login-page input{
+      border-radius: 5px;
+}
 
 .login-page h1 {
     font-size: 72px;
