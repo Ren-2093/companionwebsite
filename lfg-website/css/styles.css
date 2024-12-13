@@ -165,6 +165,18 @@ input[type="time"]::-webkit-calendar-picker-indicator{
     margin: 10px;
 }
 
+.home-page h1{
+    font-family: "Nunito", sans-serif;
+    padding-left: 120px
+    font-weight: 700;
+}
+
+.home-page {
+    font-family: "Nunito", sans-serif;
+    display: flex 
+}
+  
+
 .login-page input{
       border-radius: 5px;
 }
