@@ -146,6 +146,13 @@ input[type="time"]::-webkit-calendar-picker-indicator{
   filter: invert(100%) sepia(0%) saturate(3207%) hue-rotate(0deg) brightness(10000000%) contrast(100%);
 }
 
+.login-page h1 {
+    padding-left: 60px;
+    font-size: 48px;
+    font-family:Gill Sans, sans-serif;
+}
+    
+
 .dropdown {
   position: relative;
   display: inline-block;
