@@ -4,10 +4,10 @@
 body {
     font-family: Gill Sans, sans-serif;
     background: linear-gradient(to bottom right, 
-                #003300 0%,       /* Dark Green at the top left */
-                #006600 40%,      /* Medium Green for smoother transition */
-                #00cc00 80%,      /* Light Green towards the bottom */
-                #66ff66 100%);    /* Very Light Green at the bottom right */
+                #6F00FF 0%,       
+                #8E2EF8 40%,      
+                #C37AED 80%,   
+                #EBB4E4 100%); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
