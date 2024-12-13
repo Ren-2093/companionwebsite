@@ -4,9 +4,10 @@
 body {
     font-family: Gill Sans, sans-serif;
     background: linear-gradient(to bottom right, 
-                #0c0129 0%, 
-                color-mix(in srgb, #0c0129 70%, #805aad) 50%, 
-                #b09ac8 100%);
+                #003300 0%,       /* Dark Green at the top left */
+                #006600 40%,      /* Medium Green for smoother transition */
+                #00cc00 80%,      /* Light Green towards the bottom */
+                #66ff66 100%);    /* Very Light Green at the bottom right */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -18,6 +19,7 @@ body {
     min-height: 100vh;
     line-height: 1.6;
     box-sizing: border-box;
+}  box-sizing: border-box;
 }
 
 
