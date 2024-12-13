@@ -165,10 +165,10 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 
 .home-page h2{
     font-family: "Nunito", sans-serif;
-    padding-top: 60px;
+    padding-top: 50px;
     padding-left: 60px;
-    padding-right: 1000px;
-    font-size: 80px;
+    padding-right: 950px;
+    font-size: 64px;
     font-weight: bold;
 }
 
@@ -319,7 +319,6 @@ footer {
     color: #FFFFFF; /* White text for footer */
     font-size: 0.9rem;
     width: 100%;
-    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.3);
     margin-top: auto; /* Push footer to bottom of page */
 }
 
