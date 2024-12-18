@@ -66,20 +66,19 @@ body::before {
 
 /* Header Styling */
 header {
+    width: 100%; /* Ensure the header takes up only the full page width */
+    max-width: 100vw; /* Prevent overflow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: white;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    background: linear-gradient(to right, #6F00FF, #8E2EF8, #C37AED); /* Smooth gradient */
-    color: white;
     z-index: 1000;
-    display: flex;
-    justify-content: space-between; /* Align content */
-    align-items: center;
-    padding: 20px 50px; /* Spacing around content */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
 header .logo {
     font-family: "Nunito", sans-serif;
     font-size: 3rem; /* Large bold font */
