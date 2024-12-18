@@ -218,8 +218,10 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 .home-page p{
     font-family: "Nunito", sans-serif;
     display: flex;
+    padding-left: 80px
     padding-top: 200px;
-    text-align: left;
+    text-align: center;
+    align-items: left;
 }
   
 
