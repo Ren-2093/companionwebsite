@@ -75,6 +75,7 @@ header {
     background-color: transparent;
     color: white;
     position: fixed;
+    box-sizing: border-box;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -126,7 +127,7 @@ header nav a:hover {
 header h1 {
     margin: 0;
     font-size: 2.8rem; /* Bigger font size for prominence */
-    padding-left: 80px
+    padding-left: 80px;
     font-weight: bold;
     font-family: "Nunito", sans-serif; /* Match header font to body font */
 }
