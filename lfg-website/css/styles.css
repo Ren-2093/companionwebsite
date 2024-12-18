@@ -70,9 +70,57 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    color: white; /* White text for header */
-    padding: 30px 0; /* Increased padding for larger header */
+    background: linear-gradient(to right, #6F00FF, #8E2EF8, #C37AED); /* Smooth gradient */
+    color: white;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Align content */
+    align-items: center;
+    padding: 20px 50px; /* Spacing around content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+    font-family: "Nunito", sans-serif;
+    font-size: 3rem; /* Large bold font */
+    font-weight: bold;
+    letter-spacing: -2px;
+    color: white;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    gap: 30px; /* Spacing between links */
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+    position: relative;
+}
+
+header nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+header nav a:hover {
+    color: #EBB4E4; /* Light pinkish hover */
 }
 
 
