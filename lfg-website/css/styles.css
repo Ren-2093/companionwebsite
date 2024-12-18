@@ -220,7 +220,7 @@ input[type="time"]::-webkit-calendar-picker-indicator{
     font-family: "Nunito", sans-serif;
     display: flex;
     padding-left: 120px;
-    padding-top: 200px;
+    padding-top: 160px;
     text-align: left;
 }
   
