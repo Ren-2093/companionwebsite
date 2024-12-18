@@ -105,6 +105,7 @@ nav ul li a {
     padding-bottom: 20px;
     border-radius: 5px;
     transition: background 0.3s, color 0.3s;
+    font-family: "Nunito", sans-serif;
 }
 
 /* Main Content Area */
