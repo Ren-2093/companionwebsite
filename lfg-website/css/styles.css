@@ -213,6 +213,7 @@ input[type="time"]::-webkit-calendar-picker-indicator{
     padding-left: 80px;
     font-size: 64px;
     font-weight: bold;
+    text-align: left;
 }
 
 .home-page p{
