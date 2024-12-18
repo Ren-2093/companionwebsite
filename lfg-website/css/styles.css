@@ -79,7 +79,7 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.8rem; /* Bigger font size for prominence */
-    padding-left: 20px
+    padding-left: 80px
     font-weight: bold;
     font-family: "Nunito", sans-serif; /* Match header font to body font */
 }
@@ -102,7 +102,6 @@ nav ul li a {
     text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
-    padding-left: 400px;
     padding-bottom: 20px;
     border-radius: 5px;
     transition: background 0.3s, color 0.3s;
