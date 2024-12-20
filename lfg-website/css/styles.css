@@ -293,7 +293,7 @@ h3 {
 }
 
 #group-list h3 {
-    color: #24c5d4; /* Teal for section headers */
+    color: white; /* Teal for section headers */
     font-family:Gill Sans, sans-serif;
     margin-bottom: 10px;
 }
@@ -301,15 +301,15 @@ h3 {
 #group-list p {
     margin-bottom: 10px;
     font-family:Gill Sans, sans-serif;
-    color: #ccc; /* Softer text color for secondary information */
+    color: white; /* Softer text color for secondary information */
 }
 
 /* Styles for group boxes */
 .group-box {
-            border: 1px solid #0c0129;
+            border: 1px solid white;
             padding: 15px;
             margin: 10px 0;
-            background-color: #0c0129;
+            background-color: #d2afff;
             border-radius: 5px;
             cursor: pointer;
         }
@@ -329,7 +329,7 @@ h3 {
 
         .modal-content {
             padding: 20px;
-            background-color: #0c0129;
+            background-color: #d2afff;
             border: 1px solid white;
             border-radius: 5px;
             text-align: center;
