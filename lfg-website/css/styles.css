@@ -309,7 +309,7 @@ h3 {
             border: 1px solid white;
             padding: 15px;
             margin: 10px 0;
-            background-color: #d2afff;
+            background-color: #973BF6;
             border-radius: 5px;
             cursor: pointer;
         }
@@ -320,6 +320,7 @@ h3 {
             left: 50%;
             transform: translate(-50%, -50%);
             background: white;
+            font-family: "Nunito", sans-serif;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             z-index: 1000;
@@ -329,7 +330,9 @@ h3 {
 
         .modal-content {
             padding: 20px;
-            background-color: #d2afff;
+            background-color: #973BF6;
+            color: white;
+            font-family: "Nunito", sans-serif;
             border: 1px solid white;
             border-radius: 5px;
             text-align: center;
