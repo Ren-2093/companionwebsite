@@ -55,8 +55,13 @@ body::before {
 }
 
 .group-page {
+  font-family: "Nunito, sans-serif;
+}
+
+.group-page h2 {
   font-family: "Nunito", sans-serif;
   color: white;
+}
 
 .content-container h2 {
     font-size: 2rem;
