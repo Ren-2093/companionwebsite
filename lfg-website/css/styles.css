@@ -54,6 +54,10 @@ body::before {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+.group-page {
+  font-family: "Nunito", sans-serif;
+  color: white;
+
 .content-container h2 {
     font-size: 2rem;
     color: #24c5d4; /* Teal for highlights */
