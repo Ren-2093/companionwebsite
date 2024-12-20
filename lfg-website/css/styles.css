@@ -265,14 +265,14 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 
 /* Highlighted Headings */
 h2 {
-    color: #24c5d4; /* Teal highlights for section headings */
+    color: white; /* Teal highlights for section headings */
     font-family:Gill Sans, sans-serif;
     margin-bottom: 10px;
     font-size: 1.8rem;
 }
 
 h3 {
-    color: #24c5d4; /* Teal highlights for section headings */
+    color: white; /* Teal highlights for section headings */
     font-family:Gill Sans, sans-serif;
     margin-bottom: 10px;
     font-size: 1.8rem;
@@ -284,7 +284,7 @@ h3 {
     margin: 20px auto;
     padding: 20px;
     max-width: 800px;
-    font-family:Gill Sans, sans-serif;
+    font-family: "Nunito", sans-serif;
     background-color: rgba(12, 1, 41, 0.2); /* Dark transparent background */
     border-radius: 10px;
     color: #ffffff;
@@ -294,13 +294,13 @@ h3 {
 
 #group-list h3 {
     color: white; /* Teal for section headers */
-    font-family:Gill Sans, sans-serif;
+    font-family: "Nunito", sans-serif;
     margin-bottom: 10px;
 }
 
 #group-list p {
     margin-bottom: 10px;
-    font-family:Gill Sans, sans-serif;
+    font-family: "Nunito", sans-serif;
     color: white; /* Softer text color for secondary information */
 }
 
@@ -350,7 +350,7 @@ h3 {
 button {
     background-color: rgba(255,255,255,0);
     color: white; /* White text */
-    font-family:Gill Sans, sans-serif;
+    font-family: "Nunito", sans-serif;
     border: 3px solid white;
     padding: 5px;
     border-radius: 5px;
