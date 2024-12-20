@@ -306,7 +306,7 @@ h3 {
 
 /* Styles for group boxes */
 .group-box {
-            border: 1px solid white;
+            border: 2px solid white;
             padding: 15px;
             margin: 10px 0;
             background-color: #7A11FC;
@@ -333,7 +333,7 @@ h3 {
             background-color: #7A11FC;
             color: white;
             font-family: "Nunito", sans-serif;
-            border: 1px solid white;
+            border: 2px solid white;
             border-radius: 5px;
             text-align: center;
         }
