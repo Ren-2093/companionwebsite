@@ -11,7 +11,7 @@
 
 /* Body Styling */
 body {
-    font-family: Gill Sans, sans-serif;
+    font-family: "Nunito", sans-serif;
     background: linear-gradient(to bottom right, 
                 #6F00FF 0%,       
                 #8E2EF8 40%,      
@@ -266,14 +266,14 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 /* Highlighted Headings */
 h2 {
     color: white; /* Teal highlights for section headings */
-    font-family:Gill Sans, sans-serif;
+    font-family: "Nunito", sans-serif;
     margin-bottom: 10px;
     font-size: 1.8rem;
 }
 
 h3 {
     color: white; /* Teal highlights for section headings */
-    font-family:Gill Sans, sans-serif;
+    font-family: "Nunito", sans-serif;
     margin-bottom: 10px;
     font-size: 1.8rem;
     text-align: center;
@@ -309,7 +309,7 @@ h3 {
             border: 1px solid white;
             padding: 15px;
             margin: 10px 0;
-            background-color: #973BF6;
+            background-color: #7A11FC;
             border-radius: 5px;
             cursor: pointer;
         }
@@ -330,7 +330,7 @@ h3 {
 
         .modal-content {
             padding: 20px;
-            background-color: #973BF6;
+            background-color: #7A11FC;
             color: white;
             font-family: "Nunito", sans-serif;
             border: 1px solid white;
