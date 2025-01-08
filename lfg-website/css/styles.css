@@ -40,7 +40,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0); /* Black overlay with 50% opacity */
+    background-color: rgba(0, 0, 0, 0);
     z-index: -1; /* Ensures the overlay is behind all content */
 }
 
@@ -65,7 +65,7 @@ body::before {
 
 .content-container h2 {
     font-size: 2rem;
-    color: #24c5d4; /* Teal for highlights */
+    color: #24c5d4; /* highlights */
     margin-bottom: 20px;
 }
 
@@ -130,7 +130,7 @@ header nav a:hover::after {
 }
 
 header nav a:hover {
-    color: #EBB4E4; /* Light pinkish hover */
+    color: #EBB4E4; 
 }
 
 
@@ -202,7 +202,7 @@ option {
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator{
-  filter: invert(100%) sepia(0%) saturate(3207%) hue-rotate(0deg) brightness(10000000%) contrast(100%);
+  filter: invert(100%) sepia(0%) saturate(3207%) hue-rotate(0deg) brightness(10000000%) contrast(100%); /* ensures clock on time is white to keep colour theme consistent */
 }
 
 .login-page {
@@ -265,14 +265,14 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 
 /* Highlighted Headings */
 h2 {
-    color: white; /* Teal highlights for section headings */
+    color: white; /* highlights for section headings */
     font-family: "Nunito", sans-serif;
     margin-bottom: 10px;
     font-size: 1.8rem;
 }
 
 h3 {
-    color: white; /* Teal highlights for section headings */
+    color: white; /* highlights for section headings */
     font-family: "Nunito", sans-serif;
     margin-bottom: 10px;
     font-size: 1.8rem;
@@ -293,7 +293,7 @@ h3 {
 }
 
 #group-list h3 {
-    color: white; /* Teal for section headers */
+    color: white; /* for section headers */
     font-family: "Nunito", sans-serif;
     margin-bottom: 10px;
 }
@@ -301,7 +301,7 @@ h3 {
 #group-list p {
     margin-bottom: 10px;
     font-family: "Nunito", sans-serif;
-    color: white; /* Softer text color for secondary information */
+    color: white;
 }
 
 /* Styles for group boxes */
@@ -362,7 +362,7 @@ button {
 }
 
 button:hover {
-    background-color: #24c5d4; /* Darker teal on hover */
+    background-color: #24c5d4; /* Darker on hover */
     transform: scale(1.05);
 }
 
