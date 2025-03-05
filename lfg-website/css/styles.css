@@ -140,6 +140,7 @@ header h1 {
     padding-left: 80px;
     font-weight: bold;
     font-family: "Nunito", sans-serif; /* Match header font to body font */
+    color: white;
 }
 
 /* Navigation Bar */
