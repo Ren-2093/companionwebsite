@@ -133,6 +133,22 @@ header nav a:hover {
     color: #EBB4E4; 
 }
 
+header h1 a:link {
+text-decoration:none;
+}
+
+header h1 a:visited {
+text-decoration:none;
+}
+
+header h1 a:hover {
+text-decoration:none;
+}
+
+header h1 a:active {
+text-decoration:none;
+}
+
 
 header h1 {
     margin: 0;
